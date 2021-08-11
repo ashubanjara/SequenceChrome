@@ -1,0 +1,8 @@
+{
+    "manifest_version": 3,
+    "version": "0.1",
+    "name": "Sequence To-Do List",
+    "action": {
+        "default_popup": "index.html"
+    }
+}

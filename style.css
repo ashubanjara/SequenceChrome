@@ -1,16 +1,25 @@
 :root {
-    --container-width: 270px;
+    --container-width: 250px;
     --text-color: #F2F2F2;
 }
 
 body {
     text-align: center;
     margin: 0;
-    background: crimson;
+    background: gray;
+    background-image: url("https://picsum.photos/560/700");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 280px;
+    min-height: 100%;
+    cursor: default;
+    letter-spacing: 0.3px;
 }
 
 h1 {
     margin-bottom: 0.5em;
+    opacity: 0;
 }
 
 ul {
@@ -36,16 +45,18 @@ li {
     width: var(--container-width);
     min-height: 65vh;
     margin: 0.25em auto;
-    border-radius: 10px;
+    -radius: 10px;
 }
 
 /* Entry Text Box */
 
 .entry-text-box {
     text-align: left;
-    border: 1px red solid;
+    /*border: 1px crimson solid;*/
+    border: none;
     background: rgba(0,0,0,0.65);
     margin-top: 0.2em;
+    margin-bottom: 1em;
     box-sizing: border-box;
     width: var(--container-width);
     font-size: 1.06rem;
@@ -64,7 +75,7 @@ li {
     background: rgba(0,0,0,0.7);
 }
 
-/* Check-Box */
+/* Check-Box / List Item */
 
 .check-box {
     display: inline-block;
@@ -76,7 +87,7 @@ li {
 .list-item {
     box-sizing: border-box;
     font-size: 1.06rem;
-    padding: 0.5em 1em;
+    padding: 0.4em 1em;
     border-radius: 10px;
     background: rgba(0,0,0,0.65);
     margin-bottom: 0.4em;
@@ -87,16 +98,38 @@ li {
     background: rgba(0,0,0,0.7);
 }
 
-/* Trash Can Icon */
+/* Strike through*/
 
-.far {
-    color: #F2F2F2;
-    font-size: 1.1em;
-    text-align: right;
+.strike-through {
+  position: relative;
+  transition: all 0.5s;
 }
 
-.far:hover {
-    color: gray;
+.strike-through::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: white;
+  animation-name: strike;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transition: all 0.5s;
+}
+
+/* Trash Can Icon */
+
+.delete-icon {
+    color: crimson;
+    cursor: pointer;
+}
+
+.delete-icon:hover {
+    color: red;
 }
 
 /* Buttons */
@@ -120,4 +153,12 @@ li {
 
 .right {
     float: right;
+}
+
+
+/* Animations */
+
+@keyframes strike{
+  0%   { width : 0; }
+  100% { width: 100%; }
 }
